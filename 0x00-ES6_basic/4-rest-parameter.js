@@ -1,7 +1,7 @@
 export default function returnHowManyArguments(...all) {
-    let sum = 0;
-    for (let i of all) {
-        sum += 1;
-    }
-    return sum;
+  let i = 0;
+  for (i of all) {
+    i += 1;
+  }
+  return i;
 }
