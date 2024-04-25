@@ -8,17 +8,16 @@ export default async function handleProfileSignup(firstName, lastName, fileName)
     return [
       {
         status: user.status,
-        value: user.status === 'fulfilled' ? user.value : user.reason,
+        value: user.status,
       },
       {
         status: photo.satus,
-        value: photo.status === 'fulfilled' ? photo.value : photo.reason,
+        value: photo.status,
       },
     ];
   } catch (error) {
     return [
       { status: 'failure', value: error },
-      { status: (error.name === 'UploadError') ? 'failure' : 'pending' },
     ];
   }
 }
