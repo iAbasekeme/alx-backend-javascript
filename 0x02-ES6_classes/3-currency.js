@@ -15,11 +15,11 @@ export default class Currency {
   }
 
   set name(newName) {
-    this._name = this._checkString(newName, 'newName');
+    this._name = this._checkString(newName, 'Name');
   }
 
   set code(newCode) {
-    this._code = this._checkString(newCode, 'newCode');
+    this._code = this._checkString(newCode, 'code');
   }
 
   _checkString(value, attributeName) {
