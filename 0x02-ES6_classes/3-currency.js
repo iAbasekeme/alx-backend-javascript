@@ -15,27 +15,21 @@ export default class Currency {
   }
 
   set name(newName) {
-    if (typeof newName !== 'string') {
-      throw new TypeError('name must be string');
-    }
-    this._name = newName;
+    this._name = this._checkString(newName, 'name');
   }
 
   set code(newCode) {
-    if (typeof newCode !== 'string') {
-      throw new TypeError('code must be string');
-    }
-    this._code = newCode;
+    this._code = this._checkString(newCode, 'code');
   }
 
-  // _checkString(value, attributeName) {
-  //   if (typeof value !== 'string') {
-  //     throw new TypeError(`${attributeName} must be string`);
-  //   }
-  //   return value;
-  // }
+  _checkString(value, attributeName) {
+    if (typeof value !== 'string') {
+      throw new TypeError(`${attributeName} must be string`);
+    }
+    return value;
+  }
 
   displayFullCurrency() {
-    return `${this._code} (${this._name})`;
+    return `${this._name} (${this._code})`;
   }
 }
