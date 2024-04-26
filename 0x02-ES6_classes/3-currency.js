@@ -1,3 +1,4 @@
+/* eslint-disable class-methods-use-this */
 /* eslint-disable no-underscore-dangle */
 export default class Currency {
   constructor(name, code) {
@@ -14,11 +15,18 @@ export default class Currency {
   }
 
   set name(newName) {
-    this._name = newName;
+    this._name = this._checkString(newName, 'newName');
   }
 
   set code(newCode) {
-    this._code = newCode;
+    this._code = this._checkString(newCode, 'newCode');
+  }
+
+  _checkString(value, attributeName) {
+    if (typeof value !== 'string') {
+      throw new TypeError(`${attributeName} must be string`);
+    }
+    return value;
   }
 
   displayFullCurrency() {
