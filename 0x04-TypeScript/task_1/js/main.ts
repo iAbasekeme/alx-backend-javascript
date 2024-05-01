@@ -7,12 +7,40 @@ interface Teacher {
   [key: string]: any;
 }
 
-const teacher3: Teacher = {
-  firstName: 'John',
-  fullTimeEmployee: false,
-  lastName: 'Doe',
-  location: 'London',
-  contract: false,
-};
+interface Directors extends Teacher {
+  numberOfReports: number;
+}
 
-console.log(teacher3);
+interface printTeacherFunction {
+  firstName: string;
+  lastName: string;
+}
+
+function printTeacher(pt:printTeacherFunction) {
+  return `${pt.firstName.slice(0,1)}. ${pt.lastName}`
+}
+
+interface studentClass {
+  firstName: string;
+  lastName: string;
+  workOnHomework(): string;
+  displayName(): string;
+}
+
+class StudentClass implements StudentClass {
+  firstName: string;
+  lastName: string;
+
+  constructor(px: printTeacherFunction) {
+    this.firstName = px.firstName
+    this.lastName = px.lastName
+  }
+
+  workOnHomework(): string {
+    return `Currently working`
+  }
+
+  displayName(): string {
+    return `${this.firstName}`;
+  }
+}
