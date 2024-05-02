@@ -63,11 +63,3 @@ interface Teacher extends Employee {
 function isDirector(employee: Employee): employee is Director {
   return employee.role === 'Director';
 }
-
-function executeWork(employee: Employee) {
-  if (isDirector(employee)) {
-    employee.workDirectorTasks();
-  } else {
-    employee.workTeacherTasks();
-  }
-}
