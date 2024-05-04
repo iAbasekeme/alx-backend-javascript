@@ -63,3 +63,21 @@ interface Teacher extends Employee {
 function isDirector(employee: Employee): employee is Director {
   return employee.role === 'Director';
 }
+
+function executeWork(employee: Director | Teacher) {
+  if (employee && employee.role === 'Director') {
+    employee.workDirectorTasks();
+  } else {
+    (employee as Teacher).workTeacherTasks()
+  }
+}
+
+type Subjects = "Math" | "History";
+
+function teachClass(todayClass: Subjects): string {
+  if (todayClass === "Math") {
+    return "Teaching Math";
+  } else if (todayClass === "History") {
+    return "Teaching History";
+  }
+}
